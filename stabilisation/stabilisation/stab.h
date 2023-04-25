@@ -4,4 +4,4 @@
 
 #include "class_filter.h"
 
-cv::Mat stab(cv::Mat img1, cv::Mat img2, int delta);
+cv::Mat stab(cv::Mat &img1, cv::Mat &img1_f, cv::Mat &img2, int delta);

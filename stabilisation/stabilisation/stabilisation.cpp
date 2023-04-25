@@ -32,7 +32,7 @@ int main() {
 
     ShowWindow(GetConsoleWindow(), SW_SHOW);    //     прячем назойливую консоль (переключение SW_SHOW / SW_HIDE)
 
-    int delta = 20;
+    uint8_t delta = 20;
 
     //char filename1[] = "Resources/image1.jpg";
     //char filename2[] = "Resources/image2.jpg";
@@ -69,7 +69,6 @@ int main() {
 
     //Mat roi1(img1, Rect(delta, delta, img1.cols - 2 * delta, img1.rows - 2 * delta));
 
-
     //Mat img2_st = stab(img1, img2, delta);
     //string img2_st_label = "img2 stabilised " + to_string(img2_st.cols) + "x" + to_string(img2_st.rows);
     //namedWindow(img2_st_label, WINDOW_AUTOSIZE);
@@ -82,26 +81,37 @@ int main() {
     //imshow(img3_st_label, img3_st);                         //  выводим изображение после фильтрации
     //moveWindow(img3_st_label, img1.cols + img2.cols + 1, 65 + img3.rows + 30);
 
+
+
+
+    uint8_t k_filter = 11;
     char filenameVid1[] = "Resources/vid1.mp4";
     char fullFilenameVid1[MAX_PATH];
     GetFullPathNameA(filenameVid1, MAX_PATH, fullFilenameVid1, nullptr);
     VideoCapture cap(fullFilenameVid1);
-    Mat img_vid1, img_vid2;
+    Mat img_vid1, img_vid1_f, img_vid2;
     cap.read(img_vid1);
     //cvtColor(img_vid1, img_vid1, COLOR_BGR2GRAY);
-    img_vid1 = img_vid1(Rect(delta, 0, img_vid1.cols - 2 * delta, img_vid1.rows - 2 * delta));
+    img_vid1 = img_vid1(Rect(delta, 0, img_vid1.cols - 2 * delta, img_vid1.rows - 2 * delta));          //  cropping  the first frame
+    boxFilter(img_vid1, img_vid1_f, -1, Size(k_filter, k_filter), Point(-1, -1), true, BORDER_REFLECT); //  filtering the first frame
     int count = 0;
     while (true) {
         clock_t tStart = clock();
         cap.read(img_vid2);
         //cvtColor(img_vid2, img_vid2, COLOR_BGR2GRAY);
-        img_vid2 = stab(img_vid1, img_vid2, delta);
-        imshow("Video " + to_string(img_vid2.cols) + "x" + to_string(img_vid2.rows), img_vid2);
+        img_vid2 = stab(img_vid1, img_vid1_f, img_vid2, delta);
+
+        imshow("Video " + to_string(img_vid2.cols) + "x" + to_string(img_vid2.rows), img_vid1);
+        
+        //imshow("Video " + to_string(img_vid1.cols) + "x" + to_string(img_vid1.rows), img_vid1);
+        
         img_vid1 = img_vid2;
         waitKey(1);
-        printf("%d Time taken: %.3fs\n", count, (double)(clock() - tStart) / CLOCKS_PER_SEC);
+        printf("%d\tTime taken: %.3fs\n", count, (double)(clock() - tStart) / CLOCKS_PER_SEC);
         ++count;
     }
+
+
 
 
     //Fil filter = box(10);

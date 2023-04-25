@@ -111,7 +111,7 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
-      <Optimization>MaxSpeed</Optimization>
+      <Optimization>Disabled</Optimization>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -151,24 +151,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="class_filter.cpp" />
-    <ClCompile Include="class_img.cpp" />
     <ClCompile Include="err.cpp" />
-    <ClCompile Include="filter2d.cpp" />
-    <ClCompile Include="filter_box.cpp" />
-    <ClCompile Include="func_gaus.cpp" />
-    <ClCompile Include="filter_gaussian.cpp" />
-    <ClCompile Include="LogDuration.cpp" />
     <ClCompile Include="stab.cpp" />
     <ClCompile Include="stabilisation.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="class_filter.h" />
-    <ClInclude Include="class_img.h" />
     <ClInclude Include="err.h" />
-    <ClInclude Include="filter2d.h" />
-    <ClInclude Include="filter_box.h" />
-    <ClInclude Include="filter_gaussian.h" />
     <ClInclude Include="func_gaus.h" />
     <ClInclude Include="LogDuration.h" />
     <ClInclude Include="stab.h" />

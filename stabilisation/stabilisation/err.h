@@ -2,4 +2,4 @@
 
 #include "class_img.h"
 
-int32_t err(Img img1, Img img2);
+int32_t err(cv::Mat &img1, cv::Mat &img2);

@@ -2,6 +2,4 @@
 
 #include <opencv2/core.hpp>
 
-#include "class_filter.h"
-
-cv::Mat stab(cv::Mat &img1, cv::Mat &img1_f, cv::Mat &img2, int delta);
+cv::Mat stab(cv::Mat& img1, cv::Mat& img1_f, cv::Mat& img2, uint16_t delta, uint8_t k_filter);

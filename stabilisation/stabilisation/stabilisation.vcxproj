@@ -153,13 +153,14 @@
   <ItemGroup>
     <ClCompile Include="err.cpp" />
     <ClCompile Include="stab.cpp" />
+    <ClCompile Include="stab2.cpp" />
     <ClCompile Include="stabilisation.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="err.h" />
     <ClInclude Include="func_gaus.h" />
-    <ClInclude Include="LogDuration.h" />
     <ClInclude Include="stab.h" />
+    <ClInclude Include="stab2.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

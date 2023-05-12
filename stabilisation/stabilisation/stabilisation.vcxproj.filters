@@ -24,6 +24,9 @@
     <ClCompile Include="err.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="stab2.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="func_gaus.h">
@@ -35,7 +38,7 @@
     <ClInclude Include="err.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="LogDuration.h">
+    <ClInclude Include="stab2.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
